@@ -1,0 +1,12 @@
+@import helper.form
+
+@main("Subir imagen") {
+@form(action = routes.Application.subirImagen, 'enctype -> "multipart/form-data") {
+
+    <input type="file" name="picture">
+
+    <p>
+        <input type="submit">
+    </p>
+}
+}

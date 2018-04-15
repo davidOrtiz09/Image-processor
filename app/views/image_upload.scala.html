@@ -1,0 +1,21 @@
+@import helper.form,helper.inputFile
+
+@(f: Form[forms.FormData])
+    @main(title = "Upload Image") {
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h1>Subida de imagenes</h1>
+                        @form(action = routes.Application.AnalizeImage, 'enctype -> "multipart/form-data") {
+                            <div class="form-group">
+                            @inputFile(f("image"), 'id -> "input-image", 'class -> "form-control", '_label -> "Seleccione una imagen")
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Analizar imagen</button>
+                        }
+                    </div>
+                </div>
+            </div>
+        </section>
+    }

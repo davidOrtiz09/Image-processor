@@ -1,0 +1,21 @@
+@import com.google.cloud.vision.v1.EntityAnnotation
+@(results: List[EntityAnnotation])
+@main(title = "Upload Image") {
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1>Resultados del análisis de la imagen</h1>
+                    <ul>
+                        @for(annotation <- results){
+                            <li>
+                                <b>@annotation.getDescription(): </b>@annotation.getScore()
+                            </li>
+                        }
+                    </ul>
+                    <a href="@routes.Application.subirImagen" class="btn btn-outline-primary">Regresar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+}
